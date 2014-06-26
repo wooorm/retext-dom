@@ -34,7 +34,7 @@ root = new Retext()
     .use(DOM)
     .parse('Some English words.');
 
-tree.toDOMNode().outerHTML;
+root.toDOMNode().outerHTML;
 /*
  * '<div>' +
  *     '<p>' +
@@ -53,7 +53,7 @@ tree.toDOMNode().outerHTML;
 var $elementNode = document.querySelector('some-dom-node');
 
 /* Append the node belonging to the TextOM tree to the DOM */
-$elementNode.appendChild(tree.toDOMNode());
+$elementNode.appendChild(root.toDOMNode());
 
 /* Log the clicked TextOM node */
 $elementNode.addEventListener('click', function (event) {
