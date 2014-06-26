@@ -1,0 +1,17 @@
+{
+  "name": "retext-dom",
+  "version": "0.0.1",
+  "description": "Create a (living) DOM tree from a TextOM tree",
+  "keywords": [
+    "dom",
+    "retext"
+  ],
+  "repository": "wooorm/retext-dom",
+  "dependencies": {
+    "wooorm/retext-visit": "0.0.5"
+  },
+  "scripts" : [
+    "index.js"
+  ],
+  "license": "MIT"
+}
