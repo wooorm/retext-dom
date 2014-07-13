@@ -49,16 +49,27 @@ describe('retext-dom', function () {
         assert($sentence.childNodes.length === sentenceNode.length);
 
         /* validate HTML */
-        assert(
-            $div.outerHTML === '<div>' +
+        assert($div.outerHTML === '<div>' +
                 '<p>' +
                     '<span>' +
-                        '<span>Some</span>' +
-                        '<span> </span>' +
-                        '<span>English</span>' +
-                        '<span> </span>' +
-                        '<span>words</span>' +
-                        '<span>.</span>' +
+                        '<span>' +
+                            '<span>Some</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>English</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>words</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>.</span>' +
+                        '</span>' +
                     '</span>' +
                 '</p>' +
             '</div>'
@@ -89,10 +100,18 @@ describe('retext-dom', function () {
             $div.outerHTML === '<div>' +
                 '<p>' +
                     '<span>' +
-                        '<span>Some</span>' +
-                        '<span> </span>' +
-                        '<span>words</span>' +
-                        '<span>.</span>' +
+                        '<span>' +
+                            '<span>Some</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>words</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>.</span>' +
+                        '</span>' +
                     '</span>' +
                 '</p>' +
             '</div>'
@@ -112,16 +131,27 @@ describe('retext-dom', function () {
         assert($sentence.childNodes.length === sentenceNode.length);
 
         /* validate HTML */
-        assert(
-            $div.outerHTML === '<div>' +
+        assert($div.outerHTML === '<div>' +
                 '<p>' +
                     '<span>' +
-                        '<span>Some</span>' +
-                        '<span> </span>' +
-                        '<span>English</span>' +
-                        '<span> </span>' +
-                        '<span>words</span>' +
-                        '<span>.</span>' +
+                        '<span>' +
+                            '<span>Some</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>English</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>words</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>.</span>' +
+                        '</span>' +
                     '</span>' +
                 '</p>' +
             '</div>'
@@ -133,22 +163,33 @@ describe('retext-dom', function () {
             $div = tree.toDOMNode();
 
         /* Change the terminal marker from a full-stop to a bang */
-        tree.head.head.tail.fromString('!');
+        tree.head.head.tail.head.fromString('!');
 
         /* Validate text content */
         assert(tree.head.head.tail.toDOMNode().textContent === '!');
 
         /* validate HTML */
-        assert(
-            $div.outerHTML === '<div>' +
+        assert($div.outerHTML === '<div>' +
                 '<p>' +
                     '<span>' +
-                        '<span>Some</span>' +
-                        '<span> </span>' +
-                        '<span>English</span>' +
-                        '<span> </span>' +
-                        '<span>words</span>' +
-                        '<span>!</span>' +
+                        '<span>' +
+                            '<span>Some</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>English</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span> </span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>words</span>' +
+                        '</span>' +
+                        '<span>' +
+                            '<span>!</span>' +
+                        '</span>' +
                     '</span>' +
                 '</p>' +
             '</div>'
