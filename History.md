@@ -1,4 +1,13 @@
 
+n.n.n / 2014-07-13
+==================
+
+ * Fixed for API changes in retext
+ * Update retext-visit, eslint, istanbul, retext
+ * Removed functionality to browserify unit tests by default
+ * Fixed typos in code example: tree -> root
+ * Filled changelog
+
 0.0.1 / 2014-06-26
 ==================
 
