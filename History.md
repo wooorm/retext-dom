@@ -1,4 +1,10 @@
 
+n.n.n / 2014-07-22
+==================
+
+ * Add functionality to expose TextNode instead of HTMLSpanElement from TextOM Text nodes (fixes #1)
+ * Add unit tests for DOM TextNode from TextOM Text nodes
+
 0.1.0 / 2014-07-13
 ==================
 
