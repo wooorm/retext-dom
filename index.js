@@ -34,6 +34,19 @@ function toDOMNode() {
     return DOMNode;
 }
 
+function toDOMTextNode() {
+    var self = this,
+        DOMNode = self.DOMNode;
+
+    if (!DOMNode) {
+        DOMNode = document.createTextNode();
+        self.DOMNode = DOMNode;
+        DOMNode.TextOMNode = self;
+    }
+
+    return DOMNode;
+}
+
 function plugin(tree) {
     tree.on('insertinside', oninsertinside);
     tree.on('removeinside', onremoveinside);
@@ -60,6 +73,9 @@ function attach(retext) {
     TextOM.Node.prototype.DOMTagName = 'span';
     TextOM.RootNode.prototype.DOMTagName = 'div';
     TextOM.ParagraphNode.prototype.DOMTagName = 'p';
+
+    TextOM.Text.prototype.toDOMNode = toDOMTextNode;
+    TextOM.Text.prototype.DOMTagName = null;
 }
 
 plugin.attach = attach;
