@@ -1,5 +1,5 @@
 
-n.n.n / 2014-07-22
+0.1.1 / 2014-07-22
 ==================
 
  * Add functionality to expose TextNode instead of HTMLSpanElement from TextOM Text nodes (fixes #1)
