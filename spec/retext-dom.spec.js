@@ -53,22 +53,22 @@ describe('retext-dom', function () {
                 '<p>' +
                     '<span>' +
                         '<span>' +
-                            '<span>Some</span>' +
+                            'Some' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>English</span>' +
+                            'English' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>words</span>' +
+                            'words' +
                         '</span>' +
                         '<span>' +
-                            '<span>.</span>' +
+                            '.' +
                         '</span>' +
                     '</span>' +
                 '</p>' +
@@ -101,16 +101,16 @@ describe('retext-dom', function () {
                 '<p>' +
                     '<span>' +
                         '<span>' +
-                            '<span>Some</span>' +
+                            'Some' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>words</span>' +
+                            'words' +
                         '</span>' +
                         '<span>' +
-                            '<span>.</span>' +
+                            '.' +
                         '</span>' +
                     '</span>' +
                 '</p>' +
@@ -135,22 +135,22 @@ describe('retext-dom', function () {
                 '<p>' +
                     '<span>' +
                         '<span>' +
-                            '<span>Some</span>' +
+                            'Some' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>English</span>' +
+                            'English' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>words</span>' +
+                            'words' +
                         '</span>' +
                         '<span>' +
-                            '<span>.</span>' +
+                            '.' +
                         '</span>' +
                     '</span>' +
                 '</p>' +
@@ -173,22 +173,22 @@ describe('retext-dom', function () {
                 '<p>' +
                     '<span>' +
                         '<span>' +
-                            '<span>Some</span>' +
+                            'Some' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>English</span>' +
+                            'English' +
                         '</span>' +
                         '<span>' +
-                            '<span> </span>' +
+                            ' ' +
                         '</span>' +
                         '<span>' +
-                            '<span>words</span>' +
+                            'words' +
                         '</span>' +
                         '<span>' +
-                            '<span>!</span>' +
+                            '!' +
                         '</span>' +
                     '</span>' +
                 '</p>' +
@@ -209,6 +209,18 @@ describe('TextOM.Node#', function () {
     it('should return a span element `toDOMNode()`', function () {
         assert(
             new TextOM.Node().toDOMNode().nodeName.toLowerCase() === 'span'
+        );
+    });
+});
+
+describe('TextOM.Text#', function () {
+    it('should have a `toDOMNode` method', function () {
+        assert(typeof (new TextOM.Text()).toDOMNode === 'function');
+    });
+
+    it('should return a text node from `toDOMNode()`', function () {
+        assert(
+            new TextOM.Text().toDOMNode().nodeName.toLowerCase() === '#text'
         );
     });
 });
