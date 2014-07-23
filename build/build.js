@@ -96,7 +96,7 @@ exports.attach = attach;
 
 });
 
-require.register("wooorm~retext-dom@0.1.1", function (exports, module) {
+require.register("wooorm~retext-dom@0.1.2", function (exports, module) {
 'use strict';
 
 var visit = require("wooorm~retext-visit@0.1.0");
@@ -125,20 +125,11 @@ function toDOMNode() {
         DOMNode = self.DOMNode;
 
     if (!DOMNode) {
-        DOMNode = document.createElement(self.DOMTagName);
-        self.DOMNode = DOMNode;
-        DOMNode.TextOMNode = self;
-    }
-
-    return DOMNode;
-}
-
-function toDOMTextNode() {
-    var self = this,
-        DOMNode = self.DOMNode;
-
-    if (!DOMNode) {
-        DOMNode = document.createTextNode();
+        if (!self.DOMTagName) {
+            DOMNode = document.createTextNode('');
+        } else {
+            DOMNode = document.createElement(self.DOMTagName);
+        }
         self.DOMNode = DOMNode;
         DOMNode.TextOMNode = self;
     }
@@ -173,7 +164,6 @@ function attach(retext) {
     TextOM.RootNode.prototype.DOMTagName = 'div';
     TextOM.ParagraphNode.prototype.DOMTagName = 'p';
 
-    TextOM.Text.prototype.toDOMNode = toDOMTextNode;
     TextOM.Text.prototype.DOMTagName = null;
 }
 
@@ -2705,7 +2695,7 @@ exports = module.exports = Retext;
 });
 
 require.register("retext-dom-gh-pages", function (exports, module) {
-var dom = require("wooorm~retext-dom@0.1.1"),
+var dom = require("wooorm~retext-dom@0.1.2"),
     visit = require("wooorm~retext-visit@0.1.0"),
     Retext = require("wooorm~retext@0.1.0-rc.6"),
     retext = new Retext().use(dom).use(visit),
