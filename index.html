@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>retext-dom</title>
+        <style>
+            textarea {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>retext-dom</h1>
+        <p>A demo of <a href="https://github.com/wooorm/retext-dom">retext-dom</a> used to allow advanced styling. Check out the CSS below, its editable—so just type something (e.g., )</p>
+
+        <textarea rows="4" autofocus>Enter some text here. Isn’t this cool? You can modify the CSS below. Every no has a class name correspondig to its grammatical type (word, punctuation, white-space, sentence, paragraph), and every node has its plain-text content in its `data-content` attribute.
+
+This can be anything based on the Latin script. Whether Old-English (“þā gewearþ þǣm hlāforde and þǣm hȳrigmannum wiþ ānum penninge”), Icelandic (“Hvað er að frétta”), or French (“Où sont les toilettes?”).</textarea>
+        <div></div>
+        <style style="display:block;font:13px/1.8 Courier New,monospace;padding:1rem;white-space:pre;background-color:black;color:white" contenteditable="true">.word { background-color: rgba(0, 0, 0, 0.1); }
+
+.word:nth-of-type(-n + 3) { font-weight: bold; }
+
+.white-space { white-space: pre; }
+
+.word .punctuation[data-content="’"] {
+    position: relative;
+    top: -4px;
+    margin-left: -1px;
+    margin-right: -2px;
+    background-color: red;
+}</style>
+        <script src="build/build.js"></script>
+    </body>
+</html>
