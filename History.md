@@ -1,4 +1,12 @@
 
+n.n.n / 2014-07-23
+==================
+
+ * Fixed a bug in Chrome
+ * Add retext as a peer dependency
+ * Add spec/browser.spec.js to gitignore
+ * Add components to gitignore
+
 0.1.1 / 2014-07-22
 ==================
 
