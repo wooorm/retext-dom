@@ -26,20 +26,11 @@ function toDOMNode() {
         DOMNode = self.DOMNode;
 
     if (!DOMNode) {
-        DOMNode = document.createElement(self.DOMTagName);
-        self.DOMNode = DOMNode;
-        DOMNode.TextOMNode = self;
-    }
-
-    return DOMNode;
-}
-
-function toDOMTextNode() {
-    var self = this,
-        DOMNode = self.DOMNode;
-
-    if (!DOMNode) {
-        DOMNode = document.createTextNode();
+        if (!self.DOMTagName) {
+            DOMNode = document.createTextNode('');
+        } else {
+            DOMNode = document.createElement(self.DOMTagName);
+        }
         self.DOMNode = DOMNode;
         DOMNode.TextOMNode = self;
     }
@@ -74,7 +65,6 @@ function attach(retext) {
     TextOM.RootNode.prototype.DOMTagName = 'div';
     TextOM.ParagraphNode.prototype.DOMTagName = 'p';
 
-    TextOM.Text.prototype.toDOMNode = toDOMTextNode;
     TextOM.Text.prototype.DOMTagName = null;
 }
 
