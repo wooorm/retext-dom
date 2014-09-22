@@ -9,14 +9,19 @@ Notes:
 
 ## Installation
 
-NPM:
+npm:
 ```sh
 $ npm install retext-dom
 ```
 
-Component.js:
+Component:
 ```sh
 $ component install wooorm/retext-dom
+```
+
+Bower:
+```sh
+$ bower install retext-dom
 ```
 
 ## Usage
