@@ -1,11 +1,8 @@
 # retext-dom [![Build Status](https://travis-ci.org/wooorm/retext-dom.svg?branch=master)](https://travis-ci.org/wooorm/retext-dom) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-dom.svg)](https://coveralls.io/r/wooorm/retext-dom?branch=master)
 
-Create a (living) DOM tree from a TextOM tree with **[Retext](https://github.com/wooorm/retext)**. Living? Well, when the TextOM tree changes, so will the DOM tree.
+Create a (living) DOM tree from a TextOM tree with **[retext](https://github.com/wooorm/retext)**. Living? Well, when the TextOM tree changes, so will the DOM tree.
 
-Notes:
-
-- retext-dom only works in the browser (d’oh), or with a Node.js DOM such as [jsdom](https://www.npmjs.org/package/jsdom).
-- the plugin automagically links the DOM nodes together, but only if they are attached to a document created using `Retext#parse()`
+Note: **retext-dom** only works in the browser (d’oh), or with a Node DOM such as [jsdom](https://www.npmjs.org/package/jsdom).
 
 ## Installation
 
@@ -27,63 +24,80 @@ $ bower install retext-dom
 ## Usage
 
 ```js
-var Retext = require('retext'),
-    DOM = require('retext-dom'),
-    root;
+var Retext,
+    retext,
+    dom;
 
-root = new Retext()
-    .use(DOM)
-    .parse('Some English words.');
+retext = new Retext().use(dom);
 
-root.toDOMNode().outerHTML;
-/*
- * '<div>' +
- *     '<p>' +
- *         '<span>' +
- *             '<span>Some</span>' +
- *             '<span> </span>' +
- *             '<span>English</span>' +
- *             '<span> </span>' +
- *             '<span>words</span>' +
- *             '<span>.</span>' +
- *         '</span>' +
- *     '</p>'
- * '</div>'
- */
+retext.parse('Some English words.', function (err, tree) {
+    var $elementNode;
 
-var $elementNode = document.querySelector('some-dom-node');
+    if (err) throw err;
 
-/* Append the node belonging to the TextOM tree to the DOM */
-$elementNode.appendChild(root.toDOMNode());
+    console.log(tree.toDOMNode().outerHTML);
+    /**
+     * Logs the following (whitespace added):
+     * <div>
+     *     <p>
+     *         <span>
+     *             <span>Some</span>
+     *             <span> </span>
+     *             <span>English</span>
+     *             <span> </span>
+     *             <span>words</span>
+     *             <span>.</span>
+     *         </span>
+     *     </p>
+     * </div>
+     */
 
-/* Log the clicked TextOM node */
-$elementNode.addEventListener('click', function (event) {
-    /* The DOM elements belonging to TextOM all have a `TextOMNode`
-     * property referencing back to the TextOM tree */
-    if (event.target.TextOMNode) {
-        console.log(event.target.TextOMNode);
-    }
+     $elementNode = document.querySelector('some-dom-node');
+
+    /**
+     * Append the node belonging to the TextOM tree to the DOM.
+     */
+
+    $elementNode.appendChild(tree.toDOMNode());
+
+    /**
+     * Log click events.
+     */
+
+    $elementNode.addEventListener('click', function (event) {
+        /**
+         * The DOM elements belonging to TextOM all have a
+         * `TextOMNode` property referencing back to the
+         * TextOM tree.
+         */
+
+        if (event.target.TextOMNode) {
+            console.log(event.target.TextOMNode.toString());
+        }
+    });
 });
 ```
+
+The above examples uses retext 0.2.0, which is currently in beta. For an example with the stable retext, see [retext-dom@0.1.2](https://github.com/wooorm/retext-dom/tree/0.1.2).
 
 ## API
 
 ### TextOM.Node#toDOMNode()
+
 ```js
-root.toDOMNode() // <div>...</div>
-root.head.toDOMNode() // <p>...</p>
-root.head.head.toDOMNode() // <span>...</span>
-root.head.head.head.toDOMNode() // <span>Some</span>
+tree.toDOMNode() // `<div>...</div>`
+tree.head.toDOMNode() // `<p>...</p>`
+tree.head.head.toDOMNode() // `<span>...</span>`
+tree.head.head.head.toDOMNode() // `<span>Some</span>`
 ```
 
 Returns the DOM node belonging to the TextOM node.
 
 Which tag?
+
 - `ParagraphNode`'s create a `<p>` element;
 - `RootNode`s create a `<div>` element;
 - All other TextOM nodes create a `<span>` element;
-
-This functionality is defined by the `DOMTagName` property on prototypes, if you want other tag names to appear, modify that property (or just overwrite the function on certain nodes).
 
 ## License
 
