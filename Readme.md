@@ -82,4 +82,4 @@ This functionality is defined by the `DOMTagName` property on prototypes, if you
 
 ## License
 
-  MIT
+MIT © Titus Wormer
