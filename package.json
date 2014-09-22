@@ -2,14 +2,19 @@
   "name": "retext-dom",
   "version": "0.1.2",
   "description": "Create a (living) DOM tree from a TextOM tree",
+  "license": "MIT",
   "keywords": [
     "dom",
     "retext"
   ],
-  "author": "Titus Wormer <tituswormer@gmail.com>",
   "dependencies": {
     "retext-visit": "^0.1.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/retext-dom.git"
+  },
+  "author": "Titus Wormer <tituswormer@gmail.com>",
   "devDependencies": {
     "eslint": "^0.8.0",
     "istanbul": "^0.3.0",
@@ -17,10 +22,6 @@
     "jsdom": "^1.0.0-pre.7",
     "mocha": "^1.20.0",
     "retext": "^0.2.0-rc.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/retext-dom.git"
   },
   "scripts": {
     "test": "node_modules/.bin/_mocha --reporter spec --check-leaks -u exports spec/retext-dom.spec.js",
@@ -33,6 +34,5 @@
     "build-browser-test": "node_modules/.bin/browserify spec/retext-dom.spec.js -o spec/browser.spec.js",
     "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -- spec/retext-dom.spec.js",
     "make": "npm run lint && npm run coverage"
-  },
-  "license": "MIT"
+  }
 }
