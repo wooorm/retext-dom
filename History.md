@@ -1,4 +1,21 @@
 
+n.n.n / 2014-09-22
+==================
+
+ * Update retext-visit in bower.json, component.json
+ * Update Readme.md
+ * Refactor API
+ * Add npm deployment to travis
+ * Remove `npm update` from travis
+ * Update .gitignore, .npmignore
+ * Update Installation in docs
+ * Add bower.json
+ * Fix property order in component.json, package.json
+ * Update copyright in docs
+ * Remove testling
+ * Refactor spec
+ * Update dependencies
+
 0.1.2 / 2014-07-23
 ==================
 
