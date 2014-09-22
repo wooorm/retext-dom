@@ -1,0 +1,27 @@
+{
+  "name": "retext-dom",
+  "main": "index.js",
+  "description": "Create a (living) DOM tree from a TextOM tree",
+  "license": "MIT",
+  "keywords": [
+    "dom",
+    "retext"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/retext-dom.git"
+  },
+  "authors": [
+    "Titus Wormer <tituswormer@gmail.com>"
+  ],
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "component.json",
+    "package.json",
+    "coverage",
+    "node_modules",
+    "spec"
+  ]
+}
