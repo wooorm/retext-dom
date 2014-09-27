@@ -21,21 +21,23 @@ function oninputchange(event) {
         outputElement.removeChild(outputElement.firstChild);
     }
 
-    tree = retext.parse(inputElement.value);
+    retext.parse(inputElement.value, function (err, tree) {
+        if (err) throw err;
 
-    tree.visit(function (node) {
-        if (!node.DOMTagName) {
-            return;
-        }
+        tree.visit(function (node) {
+            if (!node.DOMTagName) {
+                return;
+            }
 
-        node.DOMNode.classList.add(typeMap[node.type]);
-        node.DOMNode.setAttribute('data-content', node.toString());
+            node.DOMNode.classList.add(typeMap[node.type]);
+            node.DOMNode.setAttribute('data-content', node.toString());
+        });
+
+        tree.DOMNode.classList.add(typeMap[tree.type]);
+        tree.DOMNode.setAttribute('data-content', tree.toString());
+
+        outputElement.appendChild(tree.DOMNode);
     });
-
-    tree.DOMNode.classList.add(typeMap[tree.type]);
-    tree.DOMNode.setAttribute('data-content', tree.toString());
-
-    outputElement.appendChild(tree.DOMNode);
 }
 
 inputElement.addEventListener('input', oninputchange);
