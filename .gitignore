@@ -1,6 +1,6 @@
 node_modules
 bower_components
 components
-spec/browser.spec.js
+test/browser.js
 .DS_Store
 coverage
