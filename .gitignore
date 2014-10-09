@@ -1,6 +1,8 @@
-node_modules
-bower_components
-components
-test/browser.js
 .DS_Store
-coverage
+*.log
+bower_components/
+build/
+components/
+node_modules/
+coverage/
+test/browser.js
