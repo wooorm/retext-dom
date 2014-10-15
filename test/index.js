@@ -148,19 +148,19 @@ describe('ParagraphNode#toDOMNode()', function () {
 describe('Live workings', function () {
     it('should create a DOM tree from the TextOM tree', function (done) {
         retext.parse('Some English words.', function (err, tree) {
-            var $div,
+            var $tree,
                 sentenceNode,
                 $sentence;
 
-            $div = tree.toDOMNode();
+            $tree = tree.toDOMNode();
             sentenceNode = tree.head.head;
-            $sentence = $div.childNodes[0].childNodes[0];
+            $sentence = $tree.childNodes[0].childNodes[0];
 
             /**
              * Validate Paragraph node.
              */
 
-            assert($div.childNodes[0] === tree.head.toDOMNode());
+            assert($tree.childNodes[0] === tree.head.toDOMNode());
 
             /**
              * Validate Sentence node.
@@ -184,7 +184,7 @@ describe('Live workings', function () {
              * Validate HTML.
              */
 
-            assert($div.outerHTML === '<div>' +
+            assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
                             '<span>' +
@@ -216,17 +216,17 @@ describe('Live workings', function () {
 
     it('should sync when nodes are removed/inserted', function (done) {
         retext.parse('Some English words.', function (err, tree) {
-            var $div,
+            var $tree,
                 sentenceNode,
                 wordNode,
                 whiteSpaceNode,
                 $sentence;
 
-            $div = tree.toDOMNode();
+            $tree = tree.toDOMNode();
             sentenceNode = tree.head.head;
             wordNode = sentenceNode[2];
             whiteSpaceNode = sentenceNode[3];
-            $sentence = $div.childNodes[0].childNodes[0];
+            $sentence = $tree.childNodes[0].childNodes[0];
 
             /**
              * Remove ``English ''.
@@ -250,7 +250,7 @@ describe('Live workings', function () {
              */
 
             assert(
-                $div.outerHTML === '<div>' +
+                $tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
                             '<span>' +
@@ -293,7 +293,7 @@ describe('Live workings', function () {
              * Validate HTML.
              */
 
-            assert($div.outerHTML === '<div>' +
+            assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
                             '<span>' +
@@ -323,11 +323,69 @@ describe('Live workings', function () {
         });
     });
 
+    it('should sync when root\'s children are removed', function (done) {
+        retext.parse('Some English words.', function (err, tree) {
+            var $tree;
+
+            $tree = tree.toDOMNode();
+
+            assert($tree.outerHTML === '<div>' +
+                    '<p>' +
+                        '<span>' +
+                            '<span>' +
+                                'Some' +
+                            '</span>' +
+                            '<span>' +
+                                ' ' +
+                            '</span>' +
+                            '<span>' +
+                                'English' +
+                            '</span>' +
+                            '<span>' +
+                                ' ' +
+                            '</span>' +
+                            '<span>' +
+                                'words' +
+                            '</span>' +
+                            '<span>' +
+                                '.' +
+                            '</span>' +
+                        '</span>' +
+                    '</p>' +
+                '</div>'
+            );
+
+            tree.replaceContent('Other words.');
+
+            assert($tree.outerHTML === '<div>' +
+                    '<p>' +
+                        '<span>' +
+                            '<span>' +
+                                'Other' +
+                            '</span>' +
+                            '<span>' +
+                                ' ' +
+                            '</span>' +
+                            '<span>' +
+                                'words' +
+                            '</span>' +
+                            '<span>' +
+                                '.' +
+                            '</span>' +
+                        '</span>' +
+                    '</p>' +
+                '</div>'
+            );
+
+            done(err);
+        });
+    });
+
     it('should sync when text values are changed', function (done) {
         retext.parse('Some English words.', function (err, tree) {
-            var $div;
+            var $tree;
 
-            $div = tree.toDOMNode();
+            $tree = tree.toDOMNode();
 
             /**
              * Change the terminal marker from a full-stop to a bang.
@@ -345,7 +403,7 @@ describe('Live workings', function () {
              * Validate HTML.
              */
 
-            assert($div.outerHTML === '<div>' +
+            assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
                             '<span>' +
