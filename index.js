@@ -91,6 +91,16 @@ function toDOMNode() {
          */
 
         DOMNode.TextOMNode = self;
+
+        /**
+         * Fake change events.
+         */
+
+        if (!self.DOMTagName) {
+            onchangetextinside(self, self.toString(), null);
+        } else if ('visit' in self) {
+            self.visit(oninsertinside);
+        }
     }
 
     return DOMNode;
@@ -106,21 +116,6 @@ function plugin(tree) {
     tree.on('insertinside', oninsertinside);
     tree.on('removeinside', onremoveinside);
     tree.on('changetextinside', onchangetextinside);
-
-    /**
-     * Make sure a parent DOM node, to attach to,
-     * exists.
-     */
-
-    tree.toDOMNode();
-
-    tree.visit(function (node) {
-        oninsertinside(node);
-
-        if (node instanceof node.TextOM.Text) {
-            onchangetextinside(node, node.toString(), null);
-        }
-    });
 }
 
 /**
