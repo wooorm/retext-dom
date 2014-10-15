@@ -1,6 +1,7 @@
 'use strict';
 
 var dom,
+    content,
     jsdom,
     Retext,
     assert,
@@ -24,10 +25,11 @@ if (typeof window !== 'object') {
  */
 
 dom = require('..');
+content = require('retext-content');
 Retext = require('retext');
 assert = require('assert');
 
-retext = new Retext().use(dom);
+retext = new Retext().use(content).use(dom);
 TextOM = retext.TextOM;
 
 /**
