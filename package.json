@@ -1,6 +1,6 @@
 {
   "name": "retext-dom",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Create a (living) DOM tree from a TextOM tree",
   "license": "MIT",
   "keywords": [
