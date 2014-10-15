@@ -1,5 +1,5 @@
 
-n.n.n / 2014-10-15
+0.2.0 / 2014-10-15
 ==================
 
  * Add support for inserting unknown nodes
