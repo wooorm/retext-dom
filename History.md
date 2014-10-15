@@ -1,4 +1,11 @@
 
+n.n.n / 2014-10-15
+==================
+
+ * Add support for inserting unknown nodes
+ * Add test for insertion of unknown nodes
+ * Add retext-content as a dev-dependency
+
 0.1.4 / 2014-10-15
 ==================
 
