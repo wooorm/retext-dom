@@ -187,24 +187,12 @@ describe('Live workings', function () {
             assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Some' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'English' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '.' +
-                            '</span>' +
+                            '<span>Some</span>' +
+                            ' ' +
+                            '<span>English</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '.' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -253,18 +241,10 @@ describe('Live workings', function () {
                 $tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Some' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '.' +
-                            '</span>' +
+                            '<span>Some</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '.' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -296,24 +276,12 @@ describe('Live workings', function () {
             assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Some' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'English' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '.' +
-                            '</span>' +
+                            '<span>Some</span>' +
+                            ' ' +
+                            '<span>English</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '.' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -332,24 +300,12 @@ describe('Live workings', function () {
             assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Some' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'English' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '.' +
-                            '</span>' +
+                            '<span>Some</span>' +
+                            ' ' +
+                            '<span>English</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '.' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -360,18 +316,10 @@ describe('Live workings', function () {
             assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Other' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '.' +
-                            '</span>' +
+                            '<span>Other</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '.' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -391,7 +339,7 @@ describe('Live workings', function () {
              * Change the terminal marker from a full-stop to a bang.
              */
 
-            tree.head.head.tail.head.fromString('!');
+            tree.head.head.tail.fromString('!');
 
             /**
              * Validate text content.
@@ -406,24 +354,12 @@ describe('Live workings', function () {
             assert($tree.outerHTML === '<div>' +
                     '<p>' +
                         '<span>' +
-                            '<span>' +
-                                'Some' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'English' +
-                            '</span>' +
-                            '<span>' +
-                                ' ' +
-                            '</span>' +
-                            '<span>' +
-                                'words' +
-                            '</span>' +
-                            '<span>' +
-                                '!' +
-                            '</span>' +
+                            '<span>Some</span>' +
+                            ' ' +
+                            '<span>English</span>' +
+                            ' ' +
+                            '<span>words</span>' +
+                            '!' +
                         '</span>' +
                     '</p>' +
                 '</div>'
@@ -455,16 +391,16 @@ describe('Live workings', function () {
                 assert($tree.outerHTML === '<div>' +
                         '<p>' +
                             '<span>' +
-                                '<span> </span>' +
+                                ' ' +
                                 '<span>sentence</span>' +
-                                '<span>.</span>' +
+                                '.' +
                             '</span>' +
-                            '<span> </span>' +
+                            ' ' +
                             '<span>' +
                                 '<span>Other</span>' +
-                                '<span> </span>' +
+                                ' ' +
                                 '<span>sentence</span>' +
-                                '<span>.</span>' +
+                                '.' +
                                 '<span>A</span>' +
                             '</span>' +
                         '</p>' +
