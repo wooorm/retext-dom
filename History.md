@@ -1,5 +1,5 @@
 
-n.n.n / 2014-10-22
+0.2.1 / 2014-10-22
 ==================
 
  * Fix bug where re-inserted, removed nodes, would throw
