@@ -432,4 +432,73 @@ describe('Live workings', function () {
             done(err);
         });
     });
+
+    it('[remove] should not fail when the node is re-inserted',
+        function (done) {
+            retext.parse('A sentence. Other sentence.', function (err, tree) {
+                var $tree;
+
+                $tree = tree.toDOMNode();
+
+                /**
+                 * When the first sentence's head is
+                 * removed, re-insert it in the second
+                 * sentence.
+                 */
+
+                tree.head.head.head.on('remove', function () {
+                    tree.head.tail.append(this);
+                });
+
+                tree.head.head.head.remove();
+
+                assert($tree.outerHTML === '<div>' +
+                        '<p>' +
+                            '<span>' +
+                                '<span> </span>' +
+                                '<span>sentence</span>' +
+                                '<span>.</span>' +
+                            '</span>' +
+                            '<span> </span>' +
+                            '<span>' +
+                                '<span>Other</span>' +
+                                '<span> </span>' +
+                                '<span>sentence</span>' +
+                                '<span>.</span>' +
+                                '<span>A</span>' +
+                            '</span>' +
+                        '</p>' +
+                    '</div>'
+                );
+
+                done(err);
+            });
+        }
+    );
+
+    it('[changetext] should not fail when the value is re-changed',
+        function (done) {
+            retext.parse('A sentence. Other sentence.', function (err, tree) {
+                var head;
+
+                head = tree.head.head.head;
+
+                /**
+                 * When the first word's value is changed,
+                 * re-change it.
+                 */
+
+                head.head.on('changetext', function () {
+                    this.fromString('C');
+                });
+
+                head.head.fromString('B');
+
+                assert(head.head.toString() === 'C');
+                assert(head.toDOMNode().outerHTML === '<span>C</span>');
+
+                done(err);
+            });
+        }
+    );
 });

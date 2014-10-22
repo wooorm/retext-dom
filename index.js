@@ -39,7 +39,9 @@ function oninsertinside(node) {
  */
 
 function onremoveinside(node, previousParent) {
-    previousParent.toDOMNode().removeChild(node.toDOMNode());
+    if (node.toDOMNode().parentNode === previousParent.toDOMNode()) {
+        previousParent.toDOMNode().removeChild(node.toDOMNode());
+    }
 }
 
 /**
@@ -49,8 +51,10 @@ function onremoveinside(node, previousParent) {
  * @param {Node} node - Changed node.
  */
 
-function onchangetextinside(node, newValue) {
-    node.toDOMNode().textContent = newValue;
+function onchangetextinside(node, value) {
+    if (node.toString() === value) {
+        node.toDOMNode().textContent = value;
+    }
 }
 
 /**
