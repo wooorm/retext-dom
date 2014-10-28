@@ -40,10 +40,6 @@ describe('retext-dom', function () {
     it('should be a `function`', function () {
         assert(typeof dom === 'function');
     });
-
-    it('should have an `attach` method', function () {
-        assert(typeof dom.attach === 'function');
-    });
 });
 
 /**

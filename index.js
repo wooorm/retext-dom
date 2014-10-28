@@ -111,24 +111,24 @@ function toDOMNode() {
 }
 
 /**
- * Define `plugin`.
+ * Define `onrun`.
  *
  * @param {Node} tree - TextOM node.
  */
 
-function plugin(tree) {
+function onrun(tree) {
     tree.on('insertinside', oninsertinside);
     tree.on('removeinside', onremoveinside);
     tree.on('changetextinside', onchangetextinside);
 }
 
 /**
- * Define `attach`.
+ * Define `plugin`.
  *
  * @param {Retext} retext - Instance of Retext.
  */
 
-function attach(retext) {
+function plugin(retext) {
     var TextOM;
 
     /**
@@ -146,13 +146,9 @@ function attach(retext) {
     TextOM.ParagraphNode.prototype.DOMTagName = 'p';
 
     TextOM.Text.prototype.DOMTagName = null;
+
+    return onrun;
 }
-
-/**
- * Expose `attach`.
- */
-
-plugin.attach = attach;
 
 /**
  * Expose `plugin`.
