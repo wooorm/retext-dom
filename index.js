@@ -25,16 +25,20 @@ function oninputchange(event) {
         if (err) throw err;
 
         tree.visit(function (node) {
+            var domNode;
+
+            domNode = node.toDOMNode();
+
             if (!node.DOMTagName) {
                 return;
             }
 
-            node.DOMNode.classList.add(typeMap[node.type]);
-            node.DOMNode.setAttribute('data-content', node.toString());
+            domNode.classList.add(typeMap[node.type]);
+            domNode.setAttribute('data-content', node.toString());
         });
 
-        tree.DOMNode.classList.add(typeMap[tree.type]);
-        tree.DOMNode.setAttribute('data-content', tree.toString());
+        tree.toDOMNode().classList.add(typeMap[tree.type]);
+        tree.toDOMNode().setAttribute('data-content', tree.toString());
 
         outputElement.appendChild(tree.DOMNode);
     });
