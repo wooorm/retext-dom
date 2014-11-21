@@ -28,13 +28,13 @@
   "scripts": {
     "test": "node_modules/.bin/_mocha --reporter spec --check-leaks -u exports test/index.js",
     "test-travis": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --check-leaks -u exports test/index.js",
-    "lint": "npm run lint-api && npm run lint-test && npm run lint-style",
+    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -- test/index.js",
     "lint-api": "node_modules/.bin/eslint index.js",
     "lint-test": "node_modules/.bin/eslint test/index.js --env mocha",
     "lint-style": "node_modules/.bin/jscs index.js test/index.js --reporter=inline",
-    "install-browser-test": "npm install browserify",
+    "lint": "npm run lint-api && npm run lint-test && npm run lint-style",
+    "make": "npm run lint && npm run coverage",
     "build-browser-test": "node_modules/.bin/browserify test/index.js -o test/browser.js",
-    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -- test/index.js",
-    "make": "npm run lint && npm run coverage"
+    "build": "npm run build-browser-test"
   }
 }
