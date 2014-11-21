@@ -1,9 +1,29 @@
-var dom = require('retext-dom'),
-    visit = require('retext-visit'),
-    Retext = require('retext'),
-    retext = new Retext().use(dom).use(visit),
-    inputElement = document.getElementsByTagName('textarea')[0],
-    outputElement = document.getElementsByTagName('div')[0];
+/**
+ * Dependencies.
+ */
+
+var Retext = require('wooorm/retext@0.4.0');
+var dom = require('wooorm/retext-dom@0.2.4');
+var visit = require('wooorm/retext-visit@0.2.2');
+
+/**
+ * Retext.
+ */
+
+var retext = new Retext()
+    .use(dom)
+    .use(visit);
+
+/**
+ * DOM elements.
+ */
+
+var $input = document.getElementsByTagName('textarea')[0];
+var $output = document.getElementsByTagName('div')[0];
+
+/**
+ * Node type to className dictionary.
+ */
 
 var typeMap = {
     'RootNode' : 'root',
@@ -14,36 +34,36 @@ var typeMap = {
     'PunctuationNode' : 'punctuation'
 }
 
-function oninputchange(event) {
-    var tree;
+/**
+ * Events
+ */
 
-    while (outputElement.firstChild) {
-        outputElement.removeChild(outputElement.firstChild);
+var tree;
+
+function oninputchange() {
+    if (tree) {
+        tree.toDOMNode().parentNode.removeChild(tree.toDOMNode());
     }
 
-    retext.parse(inputElement.value, function (err, tree) {
+    retext.parse($input.value, function (err, root) {
         if (err) throw err;
 
+        tree = root;
+
         tree.visit(function (node) {
-            var domNode;
-
-            domNode = node.toDOMNode();
-
             if (!node.DOMTagName) {
-                return;
+                return
             }
 
-            domNode.classList.add(typeMap[node.type]);
-            domNode.setAttribute('data-content', node.toString());
+            node.toDOMNode().classList.add(typeMap[node.type]);
         });
 
         tree.toDOMNode().classList.add(typeMap[tree.type]);
-        tree.toDOMNode().setAttribute('data-content', tree.toString());
 
-        outputElement.appendChild(tree.DOMNode);
+        $output.appendChild(tree.toDOMNode());
     });
 }
 
-inputElement.addEventListener('input', oninputchange);
+$input.addEventListener('input', oninputchange);
 
-oninputchange({'target' : inputElement});
+oninputchange();

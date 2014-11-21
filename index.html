@@ -17,21 +17,18 @@
 
 This can be anything based on the Latin script. Whether Old-English (“þā gewearþ þǣm hlāforde and þǣm hȳrigmannum wiþ ānum penninge”), Icelandic (“Hvað er að frétta”), or French (“Où sont les toilettes?”).</textarea>
         <div></div>
-        <style style="display:block;font:13px/1.8 Courier New,monospace;padding:1rem;white-space:pre;background-color:black;color:white" contenteditable="true">.word { background-color: rgba(0, 0, 0, 0.1); }
+        <style style="display:block;font:13px/1.8 Courier New,monospace;padding:1rem;white-space:pre;background-color:black;color:white" contenteditable="true">/**
+ * Note: some browser are a bit buggy with live-editing style sheets.
+ * Cutting all text and pasting it again might cause it to work!
+ */
+
+.word { background-color: rgba(0, 0, 0, 0.1); }
 
 .word:first-child { font-weight: bold; }
+.word:nth-child(2) { font-weight: bold; }
 
 .white-space { white-space: pre; }
-
-.word .punctuation[data-content="’"] {
-    position: relative;
-    top: -4px;
-    margin-left: -1px;
-    margin-right: -2px;
-    background-color: rgba(255,0,0,.5);
-}
-
-.word[data-content$="t"] .punctuation { border: 3px solid rgba(0,0,255,.5); }</style>
-        <script src="build/build.js"></script>
+</style>
+        <script src="build.js"></script>
     </body>
 </html>
