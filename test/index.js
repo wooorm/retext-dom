@@ -20,11 +20,13 @@ if (typeof window !== 'object') {
 
 var Retext,
     dom,
+    inspect,
     content,
     assert;
 
 Retext = require('retext');
 dom = require('..');
+inspect = require('retext-inspect');
 content = require('retext-content');
 assert = require('assert');
 
@@ -36,6 +38,7 @@ var retext,
     TextOM;
 
 retext = new Retext()
+    .use(inspect)
     .use(content)
     .use(dom);
 
