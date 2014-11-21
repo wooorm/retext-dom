@@ -24,15 +24,12 @@ $ bower install retext-dom
 ## Usage
 
 ```js
-var Retext,
-    retext,
-    dom;
+var Retext = require('retext');
+var dom = require('retext-dom');
 
-retext = new Retext().use(dom);
+var retext = new Retext().use(dom);
 
 retext.parse('Some English words.', function (err, tree) {
-    var $elementNode;
-
     if (err) throw err;
 
     console.log(tree.toDOMNode().outerHTML);
@@ -52,7 +49,7 @@ retext.parse('Some English words.', function (err, tree) {
      * </div>
      */
 
-     $elementNode = document.querySelector('some-dom-node');
+     var $elementNode = document.querySelector('some-dom-node');
 
     /**
      * Append the node belonging to the TextOM tree to the DOM.
@@ -78,11 +75,9 @@ retext.parse('Some English words.', function (err, tree) {
 });
 ```
 
-The above examples uses retext 0.2.0, which is currently in beta. For an example with the stable retext, see [retext-dom@0.1.2](https://github.com/wooorm/retext-dom/tree/0.1.2).
-
 ## API
 
-### TextOM.Node#toDOMNode()
+### [TextOM.Node](https://github.com/wooorm/textom#textomnode-nlcstnode)#toDOMNode()
 
 ```js
 tree.toDOMNode() // `<div>...</div>`
