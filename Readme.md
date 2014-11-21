@@ -1,4 +1,4 @@
-# retext-dom [![Build Status](https://travis-ci.org/wooorm/retext-dom.svg?branch=master)](https://travis-ci.org/wooorm/retext-dom) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-dom.svg)](https://coveralls.io/r/wooorm/retext-dom?branch=master)
+# retext-dom [![Build Status](https://img.shields.io/travis/wooorm/retext-dom.svg?style=flat)](https://travis-ci.org/wooorm/retext-dom) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-dom.svg?style=flat)](https://coveralls.io/r/wooorm/retext-dom?branch=master)
 
 Create a (living) DOM tree from a TextOM tree with **[retext](https://github.com/wooorm/retext)**. Living? Well, when the TextOM tree changes, so will the DOM tree.
 
