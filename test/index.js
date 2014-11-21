@@ -1,16 +1,10 @@
 'use strict';
 
-var dom,
-    content,
-    jsdom,
-    Retext,
-    assert,
-    TextOM,
-    retext;
-
 /**
  * JSDOM dependency.
  */
+
+var jsdom;
 
 /* istanbul ignore else */
 if (typeof window !== 'object') {
@@ -21,15 +15,30 @@ if (typeof window !== 'object') {
 }
 
 /**
- * Module dependencies.
+ * Dependencies.
  */
 
+var Retext,
+    dom,
+    content,
+    assert;
+
+Retext = require('retext');
 dom = require('..');
 content = require('retext-content');
-Retext = require('retext');
 assert = require('assert');
 
-retext = new Retext().use(content).use(dom);
+/**
+ * Retext.
+ */
+
+var retext,
+    TextOM;
+
+retext = new Retext()
+    .use(content)
+    .use(dom);
+
 TextOM = retext.TextOM;
 
 /**
