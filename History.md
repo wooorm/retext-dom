@@ -1,5 +1,5 @@
 
-n.n.n / 2014-11-22
+0.3.0 / 2014-11-22
 ==================
 
  * Fix support for Text nodes with `DOMTagName` properties
