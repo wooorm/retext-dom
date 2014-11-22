@@ -99,10 +99,10 @@ function toDOMNode() {
          * Fake change events.
          */
 
-        if (!self.DOMTagName) {
-            onchangetextinside(self, self.toString(), null);
-        } else if ('visit' in self) {
+        if ('visit' in self) {
             self.visit(oninsertinside);
+        } else if (self.nodeName === self.TEXT) {
+            onchangetextinside(self, self.toString(), null);
         }
     }
 
