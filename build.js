@@ -88,8 +88,8 @@
  */
 
 var Retext = require('wooorm/retext@0.4.0');
-var dom = require('wooorm/retext-dom@0.2.4');
-var visit = require('wooorm/retext-visit@0.2.2');
+var dom = require('wooorm/retext-dom@0.3.0');
+var visit = require('wooorm/retext-visit@0.2.3');
 
 /**
  * Retext.
@@ -153,7 +153,7 @@ $input.addEventListener('input', oninputchange);
 
 oninputchange();
 
-}, {"wooorm/retext@0.4.0":2,"wooorm/retext-dom@0.2.4":3,"wooorm/retext-visit@0.2.2":4}],
+}, {"wooorm/retext@0.4.0":2,"wooorm/retext-dom@0.3.0":3,"wooorm/retext-visit@0.2.3":4}],
 2: [function(require, module, exports) {
 'use strict';
 
@@ -4859,9 +4859,8 @@ function onchangetextinside(node, value) {
  *
  * On initial run, a DOM node is created. If a
  * `DOMTagName` property exists on the context
- * a DOM text node is created. Otherwise, an
- * DOM element is created of type `DOMTagName`.
- *
+ * a DOM element is created of type `DOMTagName`.
+ * Otherwise, a DOM text node is created.
  *
  * @this {Node}
  * @return {Node} DOM node.
@@ -4897,10 +4896,10 @@ function toDOMNode() {
          * Fake change events.
          */
 
-        if (!self.DOMTagName) {
-            onchangetextinside(self, self.toString(), null);
-        } else if ('visit' in self) {
+        if ('visit' in self) {
             self.visit(oninsertinside);
+        } else if (self.nodeName === self.TEXT) {
+            onchangetextinside(self, self.toString(), null);
         }
     }
 
