@@ -62,9 +62,8 @@ function onchangetextinside(node, value) {
  *
  * On initial run, a DOM node is created. If a
  * `DOMTagName` property exists on the context
- * a DOM text node is created. Otherwise, an
- * DOM element is created of type `DOMTagName`.
- *
+ * a DOM element is created of type `DOMTagName`.
+ * Otherwise, a DOM text node is created.
  *
  * @this {Node}
  * @return {Node} DOM node.
