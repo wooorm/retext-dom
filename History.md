@@ -1,4 +1,10 @@
 
+n.n.n / 2014-11-22
+==================
+
+ * Fix support for Text nodes with `DOMTagName` properties
+ * Fix incorrect description for `onchangetextinside` in `index.js`
+
 0.2.4 / 2014-11-21
 ==================
 
