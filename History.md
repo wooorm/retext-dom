@@ -1,4 +1,12 @@
 
+n.n.n / 2014-12-14
+==================
+
+ * Add benchmark
+ * Update wording in `Readme.md`
+ * Add link to personal website to copyright in `Readme.md`
+ * Update browserify, eslint, retext
+
 0.3.0 / 2014-11-22
 ==================
 
