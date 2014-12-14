@@ -8,4 +8,5 @@ node_modules/
 test/
 bower.json
 component.json
+benchmark.js
 History.md

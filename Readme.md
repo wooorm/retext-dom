@@ -97,6 +97,20 @@ Which tag?
 
 This has to do with the `DOMTagName` on a node's prototype. If it exists, a DOM node of that type is created. Otherwise, a DOM text node is created.
 
+## Performance
+
+On a MacBook air (in Node.js, with jsdom’s DOM):
+
+```
+           retext.parse
+  200 op/s » A paragraph (5 sentences, 100 words)
+   20 op/s » A section (10 paragraphs, 50 sentences, 1,000 words)
+
+           retext.parse and Node.toDOMNode()
+   20 op/s » A paragraph (5 sentences, 100 words)
+    2 op/s » A section (10 paragraphs, 50 sentences, 1,000 words)
+```
+
 ## License
 
 MIT © [Titus Wormer](http://wooorm.com)
