@@ -7,23 +7,26 @@ Note: **retext-dom** only works in the browser (d’oh), or with a Node.js DOM s
 ## Installation
 
 npm:
-```sh
+
+```bash
 $ npm install retext-dom
 ```
 
 Component:
-```sh
+
+```bash
 $ component install wooorm/retext-dom
 ```
 
 Bower:
-```sh
+
+```bash
 $ bower install retext-dom
 ```
 
 ## Usage
 
-```js
+```javascript
 var Retext = require('retext');
 var dom = require('retext-dom');
 
@@ -79,7 +82,7 @@ retext.parse('Some English words.', function (err, tree) {
 
 ### [TextOM.Node](https://github.com/wooorm/textom#textomnode-nlcstnode)#toDOMNode()
 
-```js
+```javascript
 tree.toDOMNode() // `<div>...</div>`
 tree.head.toDOMNode() // `<p>...</p>`
 tree.head.head.toDOMNode() // `<span>...</span>`
@@ -101,7 +104,7 @@ This has to do with the `DOMTagName` on a node's prototype. If it exists, a DOM 
 
 On a MacBook air (in Node.js, with jsdom’s DOM):
 
-```
+```text
            retext.parse
   200 op/s » A paragraph (5 sentences, 100 words)
    20 op/s » A section (10 paragraphs, 50 sentences, 1,000 words)
