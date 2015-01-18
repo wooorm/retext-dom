@@ -1,6 +1,6 @@
 'use strict';
 
-/**
+/*
  * JSDOM dependency.
  */
 
@@ -14,7 +14,7 @@ if (typeof window !== 'object') {
     global.document = window.document;
 }
 
-/**
+/*
  * Dependencies.
  */
 
@@ -24,7 +24,7 @@ var Retext,
 Retext = require('retext');
 dom = require('./');
 
-/**
+/*
  * Dependencies.
  */
 
@@ -32,7 +32,7 @@ var retext;
 
 retext = new Retext().use(dom);
 
-/**
+/*
  * Test data.
  *
  * This includes:
@@ -65,7 +65,7 @@ paragraph = 'Thou art a churlish knight to so affront a lady ' +
 
 section = paragraph + Array(10).join('\n\n' + paragraph);
 
-/**
+/*
  * Benchmark `fromCST`.
  */
 

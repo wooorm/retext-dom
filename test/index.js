@@ -1,6 +1,6 @@
 'use strict';
 
-/**
+/*
  * JSDOM dependency.
  */
 
@@ -14,7 +14,7 @@ if (typeof window !== 'object') {
     global.document = window.document;
 }
 
-/**
+/*
  * Dependencies.
  */
 
@@ -30,7 +30,7 @@ inspect = require('retext-inspect');
 content = require('retext-content');
 assert = require('assert');
 
-/**
+/*
  * Retext.
  */
 
@@ -44,7 +44,7 @@ retext = new Retext()
 
 TextOM = retext.TextOM;
 
-/**
+/*
  * Unit tests for `retext-dom`.
  */
 
@@ -54,7 +54,7 @@ describe('retext-dom', function () {
     });
 });
 
-/**
+/*
  * Unit tests for added properties on `TextOM.Node#`.
  */
 
@@ -64,7 +64,7 @@ describe('Node#', function () {
     });
 });
 
-/**
+/*
  * Unit tests for `TextOM.Node#toDOMNode`.
  */
 
@@ -80,7 +80,7 @@ describe('Node#toDOMNode()', function () {
     });
 });
 
-/**
+/*
  * Unit tests for `TextOM.Text#toDOMNode`.
  */
 
@@ -96,7 +96,7 @@ describe('Text#toDOMNode()', function () {
     });
 });
 
-/**
+/*
  * Unit tests for added properties on `TextOM.RootNode#`.
  */
 
@@ -106,7 +106,7 @@ describe('RootNode#', function () {
     });
 });
 
-/**
+/*
  * Unit tests for `TextOM.RootNode#toDOMNode`.
  */
 
@@ -122,7 +122,7 @@ describe('RootNode#toDOMNode()', function () {
     });
 });
 
-/**
+/*
  * Unit tests for added properties on `TextOM.ParagraphNode#`.
  */
 
@@ -132,7 +132,7 @@ describe('ParagraphNode#', function () {
     });
 });
 
-/**
+/*
  * Unit tests for `TextOM.ParagraphNode#toDOMNode`.
  */
 
@@ -149,7 +149,7 @@ describe('ParagraphNode#toDOMNode()', function () {
     });
 });
 
-/**
+/*
  * Unit tests for live syncing between TextOM and DOM.
  */
 
@@ -164,19 +164,19 @@ describe('Live workings', function () {
             sentenceNode = tree.head.head;
             $sentence = $tree.childNodes[0].childNodes[0];
 
-            /**
+            /*
              * Validate Paragraph node.
              */
 
             assert($tree.childNodes[0] === tree.head.toDOMNode());
 
-            /**
+            /*
              * Validate Sentence node.
              */
 
             assert($sentence === sentenceNode.toDOMNode());
 
-            /**
+            /*
              * Validate Text nodes.
              */
 
@@ -188,7 +188,7 @@ describe('Live workings', function () {
             assert($sentence.childNodes[5] === sentenceNode[5].toDOMNode());
             assert($sentence.childNodes.length === sentenceNode.length);
 
-            /**
+            /*
              * Validate HTML.
              */
 
@@ -224,14 +224,14 @@ describe('Live workings', function () {
             whiteSpaceNode = sentenceNode[3];
             $sentence = $tree.childNodes[0].childNodes[0];
 
-            /**
+            /*
              * Remove ``English ''.
              */
 
             wordNode.remove();
             whiteSpaceNode.remove();
 
-            /**
+            /*
              * Validate Text nodes.
              */
 
@@ -241,7 +241,7 @@ describe('Live workings', function () {
             assert($sentence.childNodes[3] === sentenceNode[3].toDOMNode());
             assert($sentence.childNodes.length === sentenceNode.length);
 
-            /**
+            /*
              * Validate HTML.
              */
 
@@ -258,14 +258,14 @@ describe('Live workings', function () {
                 '</div>'
             );
 
-            /**
+            /*
              * Insert ``English ''.
              */
 
             sentenceNode[1].after(whiteSpaceNode);
             whiteSpaceNode.before(wordNode);
 
-            /**
+            /*
              * Validate Text nodes.
              */
 
@@ -277,7 +277,7 @@ describe('Live workings', function () {
             assert($sentence.childNodes[5] === sentenceNode[5].toDOMNode());
             assert($sentence.childNodes.length === sentenceNode.length);
 
-            /**
+            /*
              * Validate HTML.
              */
 
@@ -343,19 +343,19 @@ describe('Live workings', function () {
 
             $tree = tree.toDOMNode();
 
-            /**
+            /*
              * Change the terminal marker from a full-stop to a bang.
              */
 
             tree.head.head.tail.fromString('!');
 
-            /**
+            /*
              * Validate text content.
              */
 
             assert(tree.head.head.tail.toDOMNode().textContent === '!');
 
-            /**
+            /*
              * Validate HTML.
              */
 
@@ -384,7 +384,7 @@ describe('Live workings', function () {
 
                 $tree = tree.toDOMNode();
 
-                /**
+                /*
                  * When the first sentence's head is
                  * removed, re-insert it in the second
                  * sentence.
@@ -427,7 +427,7 @@ describe('Live workings', function () {
 
                 head = tree.head.head.head;
 
-                /**
+                /*
                  * When the first word's value is changed,
                  * re-change it.
                  */

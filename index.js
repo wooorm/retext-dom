@@ -2,13 +2,13 @@
 
 var visit;
 
-/**
+/*
  * Module dependencies.
  */
 
 visit = require('retext-visit');
 
-/**
+/*
  * Throw when not running in the browser (or a
  * simulated browser environment).
  */
@@ -25,7 +25,6 @@ if (typeof document !== 'object') {
  *
  * @param {Node} node - Insertion.
  */
-
 function oninsertinside(node) {
     node.parent.toDOMNode().insertBefore(node.toDOMNode(),
         node.prev ? node.prev.toDOMNode().nextSibling : null
@@ -37,7 +36,6 @@ function oninsertinside(node) {
  *
  * @param {Node} node - Deletion.
  */
-
 function onremoveinside(node, previousParent) {
     if (node.toDOMNode().parentNode === previousParent.toDOMNode()) {
         previousParent.toDOMNode().removeChild(node.toDOMNode());
@@ -50,7 +48,6 @@ function onremoveinside(node, previousParent) {
  *
  * @param {Node} node - Changed node.
  */
-
 function onchangetextinside(node, value) {
     if (node.toString() === value) {
         node.toDOMNode().textContent = value;
@@ -68,7 +65,6 @@ function onchangetextinside(node, value) {
  * @this {Node}
  * @return {Node} DOM node.
  */
-
 function toDOMNode() {
     var self,
         DOMNode;
@@ -83,19 +79,19 @@ function toDOMNode() {
             DOMNode = document.createElement(self.DOMTagName);
         }
 
-        /**
+        /*
          * Store DOM node on context.
          */
 
         self.DOMNode = DOMNode;
 
-        /**
+        /*
          * Store context on DOM node.
          */
 
         DOMNode.TextOMNode = self;
 
-        /**
+        /*
          * Fake change events.
          */
 
@@ -114,7 +110,6 @@ function toDOMNode() {
  *
  * @param {Node} tree - TextOM node.
  */
-
 function onrun(tree) {
     tree.on('insertinside', oninsertinside);
     tree.on('removeinside', onremoveinside);
@@ -126,11 +121,10 @@ function onrun(tree) {
  *
  * @param {Retext} retext - Instance of Retext.
  */
-
 function plugin(retext) {
     var TextOM;
 
-    /**
+    /*
      * Depend on `retext-visit`.
      */
 
@@ -149,7 +143,7 @@ function plugin(retext) {
     return onrun;
 }
 
-/**
+/*
  * Expose `plugin`.
  */
 
