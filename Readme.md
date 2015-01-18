@@ -36,7 +36,7 @@ retext.parse('Some English words.', function (err, tree) {
     if (err) throw err;
 
     console.log(tree.toDOMNode().outerHTML);
-    /**
+    /*
      * Logs the following (whitespace added):
      * <div>
      *     <p>
@@ -54,18 +54,18 @@ retext.parse('Some English words.', function (err, tree) {
 
      var $elementNode = document.querySelector('some-dom-node');
 
-    /**
+    /*
      * Append the node belonging to the TextOM tree to the DOM.
      */
 
     $elementNode.appendChild(tree.toDOMNode());
 
-    /**
+    /*
      * Log click events.
      */
 
     $elementNode.addEventListener('click', function (event) {
-        /**
+        /*
          * The DOM elements belonging to TextOM all have a
          * `TextOMNode` property referencing back to the
          * TextOM tree.
