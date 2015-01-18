@@ -24,6 +24,12 @@ $ component install wooorm/retext-dom
 $ bower install retext-dom
 ```
 
+[Duo](http://duojs.org/#getting-started):
+
+```javascript
+var dom = require('wooorm/retext-dom');
+```
+
 ## Usage
 
 ```javascript
