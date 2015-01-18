@@ -48,11 +48,7 @@ retext = new Retext().use(dom);
 
 var sentence,
     paragraph,
-    section,
-    article,
-    paragraphNLCST,
-    sectionNLCST,
-    articleNLCST;
+    section;
 
 sentence = 'Where she had stood was clear, and she was gone since Sir ' +
     'Kay does not choose to assume my quarrel.';
@@ -68,8 +64,6 @@ paragraph = 'Thou art a churlish knight to so affront a lady ' +
     sentence;
 
 section = paragraph + Array(10).join('\n\n' + paragraph);
-
-article = section + Array(10).join('\n\n' + section);
 
 /**
  * Benchmark `fromCST`.
