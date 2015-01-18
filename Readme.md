@@ -94,9 +94,9 @@ Returns the DOM node belonging to the TextOM node.
 
 Which tag?
 
-- `ParagraphNode`'s create a `<p>` element;
-- `RootNode`s create a `<div>` element;
-- All other TextOM nodes create a `<span>` element;
+- [**ParagraphNode**](https://github.com/wooorm/textom#textomparagraphnode-nlcstparagraphnode)s create a `<p>` element;
+- [**RootNode**](https://github.com/wooorm/textom#textomrootnode-nlcstrootnode)s create a `<div>` element;
+- All other [**Node**](https://github.com/wooorm/textom#textomnode-nlcstnode)s create a `<span>` element;
 
 This has to do with the `DOMTagName` on a node's prototype. If it exists, a DOM node of that type is created. Otherwise, a DOM text node is created.
 
