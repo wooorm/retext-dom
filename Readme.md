@@ -122,4 +122,4 @@ On a MacBook air (in Node.js, with jsdom’s DOM):
 
 ## License
 
-MIT © [Titus Wormer](http://wooorm.com)
+[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
