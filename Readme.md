@@ -6,19 +6,19 @@ Note: **retext-dom** only works in the browser (d’oh), or with a Node.js DOM s
 
 ## Installation
 
-npm:
+[npm](https://docs.npmjs.com/cli/install):
 
 ```bash
 $ npm install retext-dom
 ```
 
-Component:
+[Component.js](https://github.com/componentjs/component):
 
 ```bash
 $ component install wooorm/retext-dom
 ```
 
-Bower:
+[Bower](http://bower.io/#install-packages):
 
 ```bash
 $ bower install retext-dom
