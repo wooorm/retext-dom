@@ -1,17 +1,18 @@
 {
   "name": "retext-dom",
   "version": "0.3.2",
-  "description": "Create a (living) DOM tree from a TextOM tree",
+  "description": "Compile NLCST to a DOM tree",
   "license": "MIT",
   "keywords": [
     "dom",
     "retext"
   ],
   "dependencies": {
-    "wooorm/retext-visit": "^0.2.2"
+    "matthewmueller/extend.js": "0.0.2",
+    "wooorm/nlcst-to-string": "~0.1.5"
   },
   "repository": "wooorm/retext-dom",
-  "scripts" : [
+  "scripts": [
     "index.js"
   ]
 }

@@ -1,9 +1,7 @@
-.DS_Store
-*.log
-bower_components/
 build/
 components/
-node_modules/
 coverage/
 test/browser.js
 build.js
+retext-dom.js
+retext-dom.min.js

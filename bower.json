@@ -1,15 +1,12 @@
 {
   "name": "retext-dom",
-  "main": "index.js",
-  "description": "Create a (living) DOM tree from a TextOM tree",
+  "main": "retext-dom.js",
+  "description": "Compile NLCST to a DOM tree",
   "license": "MIT",
   "keywords": [
     "dom",
     "retext"
   ],
-  "dependencies": {
-    "retext-visit": "^0.2.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wooorm/retext-dom.git"
@@ -27,7 +24,6 @@
     "node_modules/",
     "test/",
     "component.json",
-    "package.json",
-    "benchmark.js"
+    "package.json"
   ]
 }

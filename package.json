@@ -1,47 +1,55 @@
 {
   "name": "retext-dom",
   "version": "0.3.2",
-  "description": "Create a (living) DOM tree from a TextOM tree",
+  "description": "Compile NLCST to a DOM tree",
   "license": "MIT",
   "keywords": [
     "dom",
     "retext"
   ],
   "dependencies": {
-    "retext-visit": "^0.2.2"
+    "extend.js": "0.0.2",
+    "nlcst-to-string": "^0.1.5"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wooorm/retext-dom.git"
   },
   "author": "Titus Wormer <tituswormer@gmail.com>",
   "devDependencies": {
-    "browserify": "^8.0.0",
-    "eslint": "^0.12.0",
+    "browserify": "^11.0.1",
+    "chalk": "^1.0.0",
+    "eslint": "^1.0.0",
+    "esmangle": "^1.0.1",
     "istanbul": "^0.3.0",
-    "jscs": "^1.0.0",
-    "jscs-jsdoc": "^0.4.0",
-    "jsdom": "^3.0.0",
-    "matcha": "^0.6.0",
+    "jscs": "^2.0.0",
+    "jscs-jsdoc": "^1.0.0",
+    "jsdom": "^5.6.1",
+    "mdast": "^0.28.0",
+    "mdast-comment-config": "^0.1.2",
+    "mdast-github": "^0.3.2",
+    "mdast-lint": "^0.4.2",
+    "mdast-slug": "^0.1.1",
+    "mdast-validate-links": "^0.3.1",
     "mocha": "^2.0.0",
-    "retext": "^0.5.0",
-    "retext-content": "^0.2.5",
-    "retext-inspect": "^0.4.0"
+    "retext": "^1.0.0-rc.2"
   },
   "scripts": {
-    "test-api": "_mocha --check-leaks test/index.js",
-    "test-coveralls": "istanbul cover _mocha --report lcovonly -- --check-leaks test/index.js",
-    "test-coverage": "istanbul cover _mocha -- --check-leaks test/index.js",
-    "test-travis": "npm run test-coveralls",
+    "test-api": "mocha --check-leaks test/index.js",
+    "test-coverage": "istanbul cover _mocha -- test/index.js",
+    "test-travis": "npm run test-coverage",
     "test": "npm run test-api",
-    "lint-api": "eslint index.js",
-    "lint-benchmark": "eslint --global bench,before,suite,set benchmark.js",
-    "lint-test": "eslint --env mocha test/index.js",
-    "lint-style": "jscs --reporter inline index.js benchmark.js test/index.js",
-    "lint": "npm run lint-api && npm run lint-benchmark && npm run lint-test && npm run lint-style",
+    "lint-api": "eslint .",
+    "lint-style": "jscs --reporter inline .",
+    "lint": "npm run lint-api && npm run lint-style",
     "make": "npm run lint && npm run test-coverage",
-    "benchmark": "matcha benchmark.js",
-    "build-browser": "browserify test/index.js -o test/browser.js",
-    "build": "npm run build-browser"
+    "build-tests": "browserify test/index.js -o test/browser.js",
+    "build-bundle": "browserify index.js --ignore-missing --no-builtins --standalone retextDOM > retext-dom.js",
+    "postbuild-bundle": "esmangle retext-dom.js > retext-dom.min.js",
+    "build-md": "mdast . --quiet",
+    "build": "npm run build-bundle && npm run build-tests && npm run build-md"
   }
 }
